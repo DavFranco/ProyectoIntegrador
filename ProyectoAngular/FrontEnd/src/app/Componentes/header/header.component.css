@@ -1,7 +1,10 @@
 div {
     background-color: #9E70A2;
+    
 }
 app-social{
     float: right;
-    margin-top: 10px;
+    margin-top: 5px;
+    padding-right: 50px;
 }
+

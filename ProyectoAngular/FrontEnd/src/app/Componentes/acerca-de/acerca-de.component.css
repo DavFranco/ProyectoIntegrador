@@ -2,7 +2,7 @@
     padding: 20px;
 }
 div{
-    background-color: #caa3ce;
+    background-color: #d6b7da;
     text-align: center;
 }
 /*foto de perfil*/
@@ -13,7 +13,7 @@ div{
         border-radius: 100%;
         box-shadow: 3px 3px 3px grey;
         left: 3%;
-        top: 560px;
+        top: 460px;
   } 
 }
 @media (max-width: 576px) {
@@ -23,11 +23,11 @@ div{
         border-radius: 100%;
         box-shadow: 3px 3px 3px grey;
         left: 33%;
-        top: 560px;
+        top: 660px;
   } 
 }
 #nombre{
     font-weight: bold;
     font-size: 25px;
-    margin-top: 30%;
+    
 }
