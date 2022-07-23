@@ -11,7 +11,7 @@ package com.portfolio.df.Security.Controller;
 public class Mensaje {
     private String mensaje;
     
-    //constructores
+    //Constructor
 
     public Mensaje() {
     }
@@ -19,8 +19,7 @@ public class Mensaje {
     public Mensaje(String mensaje) {
         this.mensaje = mensaje;
     }
-    
-    //Getter y setter
+    //Getter y Setter
 
     public String getMensaje() {
         return mensaje;
@@ -29,6 +28,5 @@ public class Mensaje {
     public void setMensaje(String mensaje) {
         this.mensaje = mensaje;
     }
-    
     
 }

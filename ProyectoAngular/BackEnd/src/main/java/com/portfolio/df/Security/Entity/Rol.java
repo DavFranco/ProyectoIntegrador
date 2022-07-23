@@ -22,9 +22,7 @@ public class Rol {
     @Enumerated(EnumType.STRING)
     private RolNombre rolNombre;
     
-    
-    //constructor
-
+    //Constructor
     public Rol() {
     }
 
