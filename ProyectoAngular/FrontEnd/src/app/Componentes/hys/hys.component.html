@@ -1,11 +1,17 @@
-<div class="row">
-    <h1> Hard & Soft Skills</h1>
-    <div class="text-center col-sm-4 col-md-4 col-lg-4">
-    <circle-progress
-        [subtitle]="'Diseño'"
+<div class="row skill main-container">
+    <h1>Hard & Soft Skills</h1>
+    <div class="btn-edit"><a class="btn-right">
+        <button type="button"  (click)="OpenModal('crear')" ><i class="fa fa-plus"></i>  
+        </button></a>
+    </div>
+
+
+<div  class="col-4" *ngFor="let skill of skills">
+     <circle-progress 
+        [subtitle]="skill.nombre"
         [subtitleColor]="'black'"
         [subtitleFontSize]="'20'"
-        [percent]="75"
+        [percent]="skill.porcentaje"
         [radius]="100"
         [outerStrokeWidth]="16"
         [innerStrokeWidth]="8"
@@ -13,81 +19,27 @@
         [innerStrokeColor]="'#9E70A2'"
         [animation]="true"
         [animationDuration]="300"
-    ></circle-progress>
-    </div>
-    <div class="text-center col-sm-4 col-md-4 col-lg-4">
-        <circle-progress
-            [subtitle]="'Redes Sociales'"
-            [subtitleColor]="'black'"
-            [subtitleFontSize]="'20'"
-            [percent]="80"
-            [radius]="100"
-            [outerStrokeWidth]="16"
-            [innerStrokeWidth]="8"
-            [outerStrokeColor]="'#FF149A'"
-            [innerStrokeColor]="'#9E70A2'"
-            [animation]="true"
-            [animationDuration]="300"
+        
         ></circle-progress>
+        
+        <div class="btn-edit"><a class="btn-right">
+            <button type="button" (click)="OpenModal('borrar',skill)"><i class="fa fa-trash"></i>  
+            </button></a>
+        </div>
+    
+        <div class="btn-edit"><a class="btn-right">
+            <button type="button" (click)="OpenModal('editar',skill)" ><i class="fa fa-pen"></i>  
+            </button></a>
+        </div>
+    
     </div>
-    <div class="text-center col-sm-4 col-md-4 col-lg-4">
-        <circle-progress
-                [subtitle]="'Sistemas'"
-                [subtitleColor]="'black'"
-                [subtitleFontSize]="'20'"
-                [percent]="90"
-                [radius]="100"
-                [outerStrokeWidth]="16"
-                [innerStrokeWidth]="8"
-                [outerStrokeColor]="'#FF149A'"
-                [innerStrokeColor]="'#9E70A2'"
-                [animation]="true"
-                [animationDuration]="300"
-        ></circle-progress>
-    </div>
-    <div class="text-center col-sm-4 col-md-4 col-lg-4">
-        <circle-progress
-                    [subtitle]="'HTML 5'"
-                    [subtitleColor]="'black'"
-                    [subtitleFontSize]="'20'"
-                    [percent]="50"
-                    [radius]="100"
-                    [outerStrokeWidth]="16"
-                    [innerStrokeWidth]="8"
-                    [outerStrokeColor]="'#FF149A'"
-                    [innerStrokeColor]="'#9E70A2'"
-                    [animation]="true"
-                    [animationDuration]="300"
-        ></circle-progress>
-    </div>
-    <div class="text-center col-sm-4 col-md-4 col-lg-4">
-        <circle-progress
-                    [subtitle]="'CSS'"
-                    [subtitleColor]="'black'"
-                    [subtitleFontSize]="'20'"
-                    [percent]="50"
-                    [radius]="100"
-                    [outerStrokeWidth]="16"
-                    [innerStrokeWidth]="8"
-                    [outerStrokeColor]="'#FF149A'"
-                    [innerStrokeColor]="'#9E70A2'"
-                    [animation]="true"
-                    [animationDuration]="300"
-        ></circle-progress>
-    </div>
-    <div class="text-center col-sm-4 col-md-4 col-lg-4">
-     <circle-progress
-                    [subtitle]="'Responsabilidad'"
-                    [subtitleColor]="'black'"
-                    [subtitleFontSize]="'20'"
-                    [percent]="95"
-                    [radius]="100"
-                    [outerStrokeWidth]="16"
-                    [innerStrokeWidth]="8"
-                    [outerStrokeColor]="'#FF149A'"
-                    [innerStrokeColor]="'#9E70A2'"
-                    [animation]="true"
-                    [animationDuration]="300"
-    ></circle-progress>
-    </div>
-</div>
+</div>       
+
+
+
+
+
+
+
+
+

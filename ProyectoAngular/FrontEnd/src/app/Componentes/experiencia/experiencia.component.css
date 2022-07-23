@@ -1,14 +1,43 @@
-.row {
-    padding: 25px;
-}
 div{
     background-color: #d6b7da;
+    align-content: center;
 }
-h1,h3 {
-    display: inline;
-    padding: 5px;
+.row{
+    padding: 25px;
 }
-#logocsdnet, #logocomuna{
+
+#logos{
     width: 100px;
     padding: 5px;
+    margin-left: 25px;
+}
+h3,p{
+    
+    display:inline
+}
+#titulo{
+    text-align: center;
+}
+.btn-edit{
+    float: right;
+}
+.fa-button,.fa {
+    color: #442D47;
+    display: block;
+    height: 2.4rem;
+    width: 2.4rem;
+    line-height: 2.4rem;
+    text-align: center;
+    border-radius: 50%;
+    background: white;
+  }
+.fa-button:hover,.fa:hover {
+    background: gray;
+  }
+.btn-right{
+    float: right;
+}
+.btn-edit a button{
+    background-color: #d6b7da;
+    border: #d6b7da;
 }

@@ -1,33 +1,80 @@
 .row {
-    padding: 20px;
+    padding: 15px;
+    justify-content: center;
 }
 div{
     background-color: #d6b7da;
     text-align: center;
 }
+
 /*foto de perfil*/
   @media (min-width: 576px) {
     #fotodeperfil{
-        position: absolute;
-        width: 15%;
+        position: relative;
+        width: 70%;
         border-radius: 100%;
         box-shadow: 3px 3px 3px grey;
-        left: 3%;
-        top: 460px;
+        align-content:flex-end;
+        top: -35px;
+        margin: 5px;
+        
   } 
 }
 @media (max-width: 576px) {
     #fotodeperfil{
+        
         position: absolute;
         width: 30%;
         border-radius: 100%;
         box-shadow: 3px 3px 3px grey;
-        left: 33%;
         top: 660px;
+        margin-left: 115px;
   } 
 }
-#nombre{
-    font-weight: bold;
-    font-size: 25px;
-    
+#fotodeperfil, #nombre{
+  display: inline;
 }
+#nombre{
+  
+  justify-content:center;
+  font-family: Poppins;
+  font-style: normal;
+  font-size: 30px;
+  color: #111011;
+  
+}
+#profesion{
+  display: flex;
+  justify-content:center;
+  font-family: Poppins;
+  font-style: normal;
+  font-size: 18px;
+  color: #111011;
+}
+    
+
+.btn-right {
+    display: flex;
+    align-self:flex-end;
+  }
+.fa-button,.fa {
+    color: #442D47;
+    display: block;
+    height: 2.4rem;
+    width: 2.4rem;
+    line-height: 2.4rem;
+    text-align: center;
+    border-radius: 50%;
+    background: white;
+  }
+.fa-button:hover,.fa:hover {
+    background: gray;
+  }
+.btn-edit {
+    flex: 1;
+    flex-direction: column;
+    align-self: flex-end;
+    justify-content: flex-end;
+    display: flex;
+    text-align: end;
+  }

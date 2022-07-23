@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './Componentes/header/header.component';
@@ -10,9 +9,11 @@ import { AcercaDeComponent } from './Componentes/acerca-de/acerca-de.component';
 import { ExperienciaComponent } from './Componentes/experiencia/experiencia.component';
 import { EducacionComponent } from './Componentes/educacion/educacion.component';
 import { NgCircleProgressModule } from 'ng-circle-progress';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HysComponent } from './Componentes/hys/hys.component';
 import { PieComponent } from './Componentes/pie/pie.component';
+import { HttpClientModule} from '@angular/common/http';
+import { LoginComponent } from './Componentes/login/login.component';
 
 @NgModule({
   declarations: [
@@ -24,13 +25,16 @@ import { PieComponent } from './Componentes/pie/pie.component';
     ExperienciaComponent,
     EducacionComponent,
     HysComponent,
-    PieComponent
+    PieComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    NgCircleProgressModule.forRoot({})
+    NgCircleProgressModule.forRoot({}),
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

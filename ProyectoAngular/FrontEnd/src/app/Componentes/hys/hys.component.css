@@ -1,4 +1,42 @@
-.row{
+div{
     background-color: #d6b7da;
-    padding: 20px;
+    display: flex;
 }
+h1{
+    text-align: center;
+}
+
+.fa-button,.fa {
+    color: #442D47;
+    display: block;
+    height: 2.4rem;
+    width: 2.4rem;
+    line-height: 2.4rem;
+    text-align: center;
+    border-radius: 50%;
+    background: white;
+  }
+.fa-button:hover,.fa:hover {
+    background: gray;
+  }
+.btn-right{
+    float:right;
+    padding: 2px; 
+}
+div .btn-add{
+    justify-content:flex-end;
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
