@@ -1,32 +1,54 @@
-div{
-    background-color: #d6b7da;
-    display: flex;
+.row{
+  padding-top: 100px;
+  padding-bottom: 50px;
 }
-h1{
-    text-align: center;
+div{
+  background-color: black;   
+}
+
+button{
+  float: right;
+  background-color: black;
+  
 }
 
 .fa-button,.fa {
-    color: #442D47;
-    display: block;
-    height: 2.4rem;
-    width: 2.4rem;
-    line-height: 2.4rem;
-    text-align: center;
-    border-radius: 50%;
-    background: white;
-  }
+  color: #bd4451;
+  height: 2.4rem;
+  width: 2.4rem;
+  line-height: 2.4rem;
+  text-align: center;
+  border-radius: 50%;
+  background: black;
+  
+}
 .fa-button:hover,.fa:hover {
-    background: gray;
+  background: gray;
+}
+#agregar{
+  width: 95;
+  margin-right: 15%;
+  background-color: #bd4451;
+  border-radius: 0%;
+  
+}
+.btn-danger, #ti{
+  display: inline;      
+}
+
+#ti{
+  margin-left: 40%;
+  text-decoration: underline;
+  color: #bd4451;
+  font-family: 'Times New Roman', Times, serif;
+}
+  h5, p, span, label{
+    color: antiquewhite;
   }
-.btn-right{
-    float:right;
-    padding: 2px; 
-}
-div .btn-add{
-    justify-content:flex-end;
-    
-}
+  #editarSkillModal, #borrarSkillModal, #crearSkillModal{
+    background-color: #bd4451;
+  }
+  
 
 
 

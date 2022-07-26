@@ -4,6 +4,7 @@ import { NgForm } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { educacion } from 'src/app/model/educacion.model';
 import { EducacionService } from 'src/app/service/educacion.service';
+import { TokenService } from 'src/app/service/token.service';
 
 
 
@@ -15,17 +16,20 @@ import { EducacionService } from 'src/app/service/educacion.service';
 
 export class EducacionComponent implements OnInit {
   
-
   public educaciones:educacion[] = [];
   public editarEducacion:educacion | undefined;
   public borrarEducacion:educacion | undefined;
-
   
 
-  constructor(private educacionService:EducacionService) { }
-
+  constructor(private educacionService:EducacionService, private tokenService: TokenService) { }
+  isLogged = false;
   ngOnInit(): void {
     this.getEducaciones();
+    if (this.tokenService.getToken()) {
+      this.isLogged = true;
+    } else {
+      this.isLogged = false;
+    }
   }
   public getEducaciones(): void{
     this.educacionService.getEducacion().subscribe({
@@ -44,7 +48,7 @@ export class EducacionComponent implements OnInit {
     button.setAttribute('data-toggle','modal');
     if(mode==='crear'){
       button.setAttribute('data-target','#crearEducacionModal')
-    }else if(mode==='borrar'){
+    }else if(mode==="borrar"){
       this.borrarEducacion=educaciones;
       button.setAttribute('data-target','#borrarEducacionModal');
     }else if(mode==="editar"){
@@ -94,7 +98,8 @@ export class EducacionComponent implements OnInit {
         alert(error.message);
       }
     })
-  }
 
   }
+ 
 
+}

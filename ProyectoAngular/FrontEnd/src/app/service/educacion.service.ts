@@ -25,7 +25,7 @@ export class EducacionService {
     return this.http.put<educacion>(`${this.apiServeUrl}/educacion/editar`,Educacion);
   }
 
-  public deleteEducacion(id:number): Observable<void>{
-    return this.http.delete<void>(`${this.apiServeUrl}/educacion/borrar/${id}`);
+  public deleteEducacion(idEdu:number): Observable<void>{
+    return this.http.delete<void>(`${this.apiServeUrl}/educacion/borrar/${idEdu}`);
   }
 }

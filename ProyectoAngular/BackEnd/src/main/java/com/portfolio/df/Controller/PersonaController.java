@@ -30,7 +30,7 @@ public class PersonaController {
         return new ResponseEntity<>(persona, HttpStatus.OK);
     }
     
-    @PreAuthorize("hasRole('ADMIN')")
+    
     @PutMapping("/editar")
     public ResponseEntity<Persona> EditarPersona(@RequestBody Persona persona){
         Persona editarPersona=personaService.editarPersona(persona);

@@ -1,28 +1,30 @@
 .row {
-    padding: 15px;
-    justify-content: center;
+  text-align: center;
+  justify-content: center;
+  background-color: black;
+  padding: 30px;
+  
 }
-div{
-    background-color: #d6b7da;
-    text-align: center;
+#info{
+  padding: 20px;
 }
-
 /*foto de perfil*/
-  @media (min-width: 576px) {
+@media (min-width: 576px) {
     #fotodeperfil{
         position: relative;
         width: 70%;
         border-radius: 100%;
         box-shadow: 3px 3px 3px grey;
         align-content:flex-end;
-        top: -35px;
         margin: 5px;
+        
+        
         
   } 
 }
 @media (max-width: 576px) {
     #fotodeperfil{
-        
+        align-items: center;
         position: absolute;
         width: 30%;
         border-radius: 100%;
@@ -31,41 +33,42 @@ div{
         margin-left: 115px;
   } 
 }
-#fotodeperfil, #nombre{
-  display: inline;
-}
-#nombre{
-  
+
+#nombrep{  
+  text-align: center;
   justify-content:center;
   font-family: Poppins;
   font-style: normal;
   font-size: 30px;
-  color: #111011;
+  color: #9e9898;
+  margin-top: 50px;
   
 }
-#profesion{
-  display: flex;
-  justify-content:center;
-  font-family: Poppins;
-  font-style: normal;
-  font-size: 18px;
-  color: #111011;
+#descripcionp{
+  background-color: #bd4451;
 }
-    
+#profesionp, #descripcionp{
+  text-align: center;
+  justify-content:center;
+  
+  color: #9e9898;  
+}
 
+    
 .btn-right {
-    display: flex;
-    align-self:flex-end;
-  }
+  align-self:flex-end;  
+}
+
+
 .fa-button,.fa {
-    color: #442D47;
+    color:black;
     display: block;
     height: 2.4rem;
     width: 2.4rem;
     line-height: 2.4rem;
     text-align: center;
     border-radius: 50%;
-    background: white;
+    background: #bd4451;
   }
 .fa-button:hover,.fa:hover {
     background: gray;
@@ -78,3 +81,14 @@ div{
     display: flex;
     text-align: end;
   }
+  h5, p, span, label{
+    color: antiquewhite;
+  }
+  #editarPersonaModal{
+    background-color: #bd4451;
+    
+  }
+  .modal-content{
+    background-color: black;
+  }
+  

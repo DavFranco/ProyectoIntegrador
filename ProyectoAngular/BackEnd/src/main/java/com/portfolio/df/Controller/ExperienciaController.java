@@ -30,19 +30,19 @@ public class ExperienciaController {
         List<Experiencia> experiencias=experienciaService.getExperiencia();
         return new ResponseEntity<>(experiencias, HttpStatus.OK);
     }
-    @PreAuthorize("hasRole('ADMIN')")
+    
     @PostMapping("/crear")
     public ResponseEntity<Experiencia> crearExperiencia(@RequestBody Experiencia experiencia){
         Experiencia nuevaExperiencia=experienciaService.crearExperiencia(experiencia);
         return new ResponseEntity<>(nuevaExperiencia,HttpStatus.CREATED);
     }
-    @PreAuthorize("hasRole('ADMIN')") 
+    
     @DeleteMapping("/borrar/{id}")
     public ResponseEntity<?> borrarExperiencia(@PathVariable("id") Long id){
     experienciaService.borrarExperiencia(id);
     return new ResponseEntity<>(HttpStatus.OK);
     }
-    @PreAuthorize("hasRole('ADMIN')")
+    
     @PutMapping("/editar")
     public ResponseEntity<Experiencia> EditarExperiencia(@RequestBody Experiencia experiencia){
         Experiencia editarExperiencia=experienciaService.editarExperiencia(experiencia);

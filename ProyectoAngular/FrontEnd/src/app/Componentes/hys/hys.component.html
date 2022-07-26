@@ -1,39 +1,144 @@
-<div class="row skill main-container">
-    <h1>Hard & Soft Skills</h1>
-    <div class="btn-edit"><a class="btn-right">
-        <button type="button"  (click)="OpenModal('crear')" ><i class="fa fa-plus"></i>  
-        </button></a>
-    </div>
-
-
-<div  class="col-4" *ngFor="let skill of skills">
+<div class="row main-container">
+    <div>
+      <h1 id="ti">Hard & Soft Skills</h1>
+    <button id="agregar" type="button" class="btn btn-danger" *ngIf="isLogged" (click)="OpenModal('crear')"> AGREGAR
+    </button>
+  </div>
+    
+    <div class="col-2"></div>
+    <div class="col-8" id="main-container">
+        <div class="col-4"  *ngFor="let skill of skills" style="float: left;">
+  
+  
      <circle-progress 
         [subtitle]="skill.nombre"
-        [subtitleColor]="'black'"
+        [subtitleColor]="'#9e9898'"
         [subtitleFontSize]="'20'"
         [percent]="skill.porcentaje"
-        [radius]="100"
-        [outerStrokeWidth]="16"
-        [innerStrokeWidth]="8"
-        [outerStrokeColor]="'#FF149A'"
-        [innerStrokeColor]="'#9E70A2'"
+        [radius]="90"
+        [outerStrokeWidth]="10"
+        [innerStrokeWidth]="4"
+        [outerStrokeColor]="'#bd4451'"
+        [innerStrokeColor]="'#9e9898'"
         [animation]="true"
-        [animationDuration]="300"
+        [animationDuration]="600"
         
         ></circle-progress>
         
         <div class="btn-edit"><a class="btn-right">
-            <button type="button" (click)="OpenModal('borrar',skill)"><i class="fa fa-trash"></i>  
+            <button type="button" *ngIf="isLogged" (click)="OpenModal('borrar',skill)"><i class="fa fa-trash"></i>  
             </button></a>
         </div>
     
         <div class="btn-edit"><a class="btn-right">
-            <button type="button" (click)="OpenModal('editar',skill)" ><i class="fa fa-pen"></i>  
+            <button type="button" *ngIf="isLogged" (click)="OpenModal('editar',skill)" ><i class="fa fa-pen"></i>  
             </button></a>
         </div>
-    
+      </div>
     </div>
-</div>       
+
+  </div>
+
+        <!-- Modal Añadir Skill--> 
+<div class="modal fade" id="crearSkillModal" tabindex="-1" role="dialog" aria-labelledby="crearSkillModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="crearSkillModalLabel">Añadir Hard & Soft Skills</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-labelledby="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+      </div>
+
+      <div class="modal-body">
+        <form #addForm="ngForm" (ngSubmit)="AgregarSkill(addForm)">
+          <div class="form-group">
+            <label for="nombre">Nombre</label>
+            <input type="text" ngModel name="nombre" class="form-control" id="nombre" placeholder="Nombre" required>
+          </div>
+
+          <div class="form-group">
+            <label for="porcentaje">Porcentaje</label>
+            <input type="text" ngModel name="porcentaje" class="form-control" id="porcentaje" placeholder="Porcentaje">
+          </div>
+        </form>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" id="crear-skill-form" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" (click)="AgregarSkill(addForm)">Guardar Cambios</button>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+ <!-- Modal Editar Skill--> 
+ <div class="modal fade" id="editarSkillModal" tabindex="-1" role="dialog" aria-labelledby="crearSkillModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editarSkillModalLabel">Editar Skill</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-labelledby="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+      </div>
+
+      <div class="modal-body">
+        <form #editForm="ngForm">
+          <div class="form-group">
+            <label for="nombre">Nombre</label>
+            <input type="text" ngModel={{editarSkill?.nombre}} name="nombre" class="form-control" id="nombre" placeholder="Nombre" required>
+          </div>
+          <input type="hidden" ngModel={{editarSkill?.id}} name="id" class="form-control" id="id" placeholder=""/>
+
+          <div class="form-group">
+            <label for="porcentaje">Porcentaje</label>
+            <input type="text" ngModel={{editarSkill?.porcentaje}} name="porcentaje" class="form-control" id="porcentaje" placeholder="porcentaje">
+          </div>
+        </form>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" id="crear-skill-form" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="EditarSkill(editForm.value)">Guardar Cambios</button>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<!---  Borrar -->
+<div data-toggle="modal" data-target="#borrarSkillModal"
+class="modal fade" id="borrarSkillModal"  tabindex="-1" role="dialog" aria-labelledby="borrarSkillModalLabel" aria-hidden="true">
+
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="borrarSkillModalLabel">Borrar Hard & Soft Skills</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+
+    <div class="modal-body">
+      <p>
+        ¿Está seguro de que desea eliminar
+        {{borrarSkill?.nombre}}?
+      </p>
+        
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+      <button type="button" data-dismiss="modal" (click)="BorrarSkill(borrarSkill!.id)" class="btn btn-danger"
+     >Si</button>
+    </div>
+  </div>
+</div>
+</div>
+      
 
 
 

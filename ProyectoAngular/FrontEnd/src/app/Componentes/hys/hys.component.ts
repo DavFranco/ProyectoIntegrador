@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { skill } from 'src/app/model/skill.model';
 import { SkillService } from 'src/app/service/skill.service';
+import { TokenService } from 'src/app/service/token.service';
 
 @Component({
   selector: 'app-hys',
@@ -15,10 +16,15 @@ export class HysComponent implements OnInit {
   public editarSkill:skill | undefined;
   public borrarSkill:skill | undefined;
 
-  constructor(private skillService: SkillService) { }
-
+  constructor(private skillService: SkillService, private tokenService: TokenService) { }
+  isLogged= false;
   ngOnInit(): void {
     this.getSkill();
+    if (this.tokenService.getToken()) {
+      this.isLogged = true;
+    } else {
+      this.isLogged = false;
+    }
   }
   public getSkill(): void{
     this.skillService.getSkill().subscribe({
@@ -77,8 +83,8 @@ export class HysComponent implements OnInit {
     })
   }
 
-  public BorrarSkill(idS:number): void{
-    this.skillService.deleteSkill(idS).subscribe({
+  public BorrarSkill(id:number): void{
+    this.skillService.deleteSkill(id).subscribe({
       next: (response:void) =>{
         console.log(response);
         this.getSkill();
@@ -92,3 +98,4 @@ export class HysComponent implements OnInit {
 
 
 }
+

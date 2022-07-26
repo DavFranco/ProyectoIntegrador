@@ -30,19 +30,19 @@ public class SkillController {
         List<Skill> skills=skillService.getSkill();
         return new ResponseEntity<>(skills, HttpStatus.OK);
     }
-    @PreAuthorize("hasRole('ADMIN')")
+    
     @PostMapping("/crear")
     public ResponseEntity<Skill> crearSkill(@RequestBody Skill skill){
         Skill nuevaSkill=skillService.crearSkill(skill);
         return new ResponseEntity<>(nuevaSkill,HttpStatus.CREATED);
     }
-    @PreAuthorize("hasRole('ADMIN')")   
+       
     @DeleteMapping("/borrar/{id}")
     public ResponseEntity<?> borrarSkill(@PathVariable("id") Long id){
     skillService.borrarSkill(id);
     return new ResponseEntity<>(HttpStatus.OK);
     }
-    @PreAuthorize("hasRole('ADMIN')")
+    
     @PutMapping("/editar")
     public ResponseEntity<Skill> editarSkill(@RequestBody Skill skill){
         Skill editarSkill=skillService.editarSkill(skill);
