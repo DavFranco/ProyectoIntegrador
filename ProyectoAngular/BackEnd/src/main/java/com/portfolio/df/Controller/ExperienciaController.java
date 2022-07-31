@@ -5,7 +5,6 @@ import com.portfolio.df.Service.ExperienciaService;
 import java.util.List;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,14 +16,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@CrossOrigin(origins = "https://frontdmf.web.app")
 @RequestMapping("/experiencia")
-@CrossOrigin(origins = "http://localhost:4200")
+
 public class ExperienciaController {
      private final ExperienciaService experienciaService;
     
     public ExperienciaController (ExperienciaService experienciaService){
         this.experienciaService = experienciaService;
     }
+    
     @GetMapping("/traer")
     public ResponseEntity<List<Experiencia>> ObtenerExperiencia(){
         List<Experiencia> experiencias=experienciaService.getExperiencia();

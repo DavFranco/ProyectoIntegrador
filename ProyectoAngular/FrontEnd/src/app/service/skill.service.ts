@@ -1,16 +1,20 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { environment } from 'src/environments/environment';
 import { skill } from '../model/skill.model';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class SkillService {
-  private apiServeUrl=environment.apiBaseUrl;
 
+  private apiServeUrl = 'https://portfoliodmf.herokuapp.com';
+  
+  
+  
   constructor(private http:HttpClient) { }
+ 
 
   public getSkill(): Observable<skill[]>{
     return this.http.get<skill[]>(`${this.apiServeUrl}/skill/traer`);
@@ -29,3 +33,4 @@ export class SkillService {
     return this.http.delete<void>(`${this.apiServeUrl}/skill/borrar/${idS}`);
   }
 }
+

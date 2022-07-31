@@ -16,15 +16,17 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+
 @RestController
+@CrossOrigin(origins = "https://frontdmf.web.app")
 @RequestMapping("/educacion")
-@CrossOrigin(origins = "http://localhost:4200")
 public class EducacionController {
     private final EducacionService educacionService;
     
     public EducacionController (EducacionService educacionService){
         this.educacionService = educacionService;
     }
+    
     @GetMapping("/traer")
     public ResponseEntity<List<Educacion>> obtenerEducacion(){
         List<Educacion> educaciones=educacionService.getEducacion();

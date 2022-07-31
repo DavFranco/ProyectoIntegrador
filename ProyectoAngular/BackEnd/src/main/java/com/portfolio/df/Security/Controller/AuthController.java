@@ -33,8 +33,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@CrossOrigin(origins = "https://frontdmf.web.app")
 @RequestMapping("/auth")
-@CrossOrigin
+
 public class AuthController {
     @Autowired
     PasswordEncoder passwordEncoder;
@@ -71,7 +72,7 @@ public class AuthController {
         
         return new ResponseEntity(new Mensaje("Usuario guardado"),HttpStatus.CREATED);
     }
-    
+    @CrossOrigin (origins = "http://localhost:4200")
     @PostMapping("/login")
     public ResponseEntity<JwtDto> login(@Valid @RequestBody LoginUsuario loginUsuario, BindingResult bindingResult){
         if(bindingResult.hasErrors())

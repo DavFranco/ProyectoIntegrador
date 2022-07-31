@@ -11,7 +11,8 @@ import { NuevoUsuario } from '../model/nuevo-usuario';
 })
 export class AuthService {
 
-  authURL = 'http://localhost:8080/auth/';
+  authURL = 'https://portfoliodmf.herokuapp.com/auth/';
+  
 
   constructor(private httpClient: HttpClient) { }
 
